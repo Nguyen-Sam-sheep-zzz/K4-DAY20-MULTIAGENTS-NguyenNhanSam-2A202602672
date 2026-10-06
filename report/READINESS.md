@@ -27,7 +27,7 @@ Kiểm chứng cục bộ ngày 06/10/2026. “Đạt” dưới đây nói về
 | Không sửa tệp cấm | Đạt | 53 đối chiếu SHA, AST bốn module; provided/tests/tasks/scripts và hằng/helper/chữ ký/docstring giữ nguyên. |
 | Không lộ khóa | Đạt trong phạm vi scan | .env ignored/untracked, đối chiếu literal secret cục bộ; .dockerignore loại khỏi build context. |
 | Số liệu khớp | Đạt | final-audit.json: 18 records/traces, table matching; final-metrics.json budget 22 lượt. |
-| Push kho Git | Chuẩn bị gửi | main giữ lịch sử hypotheses/freeze; chờ đối chiếu remote sau push. |
+| Push kho Git | Đã đẩy và đối chiếu remote | main và tag freeze có trên GitHub; đủ 18 cặp chính thức, báo cáo/table, không có tệp tổng quan trong cây hoặc lịch sử main. Xem publication.json. |
 | Nộp LMS/đúng hạn | Chưa xác minh | Không thao tác LMS, chưa kiểm tra hạn nộp của lớp. |
 
 ## Tệp cần giao theo README
@@ -42,4 +42,4 @@ Kiểm chứng cục bộ ngày 06/10/2026. “Đạt” dưới đây nói về
 
 Từ PowerShell, thực hiện các lệnh offline ở RUN_COMMANDS.md. Trên clone Windows mới, giữ LF khi clone theo RUN_COMMANDS.md và chạy hash/verifier trong Docker Linux. Không chạy lại curator hoặc ghi đè kết quả cũ.
 
-Sẵn sàng giao **phần bắt buộc ở trạng thái local**; chưa thể xác nhận bài đã xuất hiện trên GitHub hoặc đã nộp LMS.
+Phần bắt buộc đã có trên **GitHub main cùng tag freeze**, đủ để nộp liên kết kho. Chưa nộp LMS hoặc xác minh hạn nộp của lớp.

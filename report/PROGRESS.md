@@ -26,4 +26,4 @@ Ngày thực hiện: 06/10/2026. Nhánh: `feature/day20-self-evolving-agents`.
 
 ## Bàn giao
 
-Phần bắt buộc hoàn thành cục bộ. Tổng 22 lượt tác vụ, 1.128.865 token đo; curator một lần chưa ghi token. Không thực hiện mở rộng tùy chọn 6e. Đối chiếu chi tiết rubric ở `READINESS.md`; kết quả phân tích ở `REPORT.md`, hướng dẫn tái lập ở `RUN_COMMANDS.md`. Bản nộp được chuẩn bị trên main, chưa nộp LMS. Không cần người dùng thao tác thêm để kiểm tra bài đã lưu; muốn chạy mới cần Docker và .env, muốn giao bài cần push cả nhánh và tag freeze rồi nộp liên kết.
+Phần bắt buộc hoàn thành cục bộ. Tổng 22 lượt tác vụ, 1.128.865 token đo; curator một lần chưa ghi token. Không thực hiện mở rộng tùy chọn 6e. Đối chiếu chi tiết rubric ở `READINESS.md`; kết quả phân tích ở `REPORT.md`, hướng dẫn tái lập ở `RUN_COMMANDS.md`. Bản nộp đã đẩy lên GitHub main kèm tag freeze và đối chiếu remote, chưa nộp LMS. Không cần người dùng thao tác thêm để kiểm tra bài đã lưu; muốn chạy mới cần Docker và .env, để nộp bài, dùng liên kết kho main trên GitHub.

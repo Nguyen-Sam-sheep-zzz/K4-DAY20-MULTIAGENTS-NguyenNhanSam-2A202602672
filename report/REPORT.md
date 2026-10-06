@@ -10,7 +10,7 @@ Mô hình thực tế **gpt-6-luna**, temperature **0.0**, recursion_limit **60*
 
 Đã chạy **22 lượt tác vụ**: 18 chính thức, 3 dev trước freeze, 1 code-learn lưu trữ do CRLF; cộng 1 lần curator và API smoke. Tổng token đo cho tác vụ **1.128.865**, trong đó chính thức 932.473, dev 151.624, lượt CRLF 44.768. Smoke thêm 16 token; **không có số token curator** vì CLI provided không ghi usage. Không coi tổng này là tổng chi phí tiền. Không thực hiện 18 lượt lặp tùy chọn.
 
-Nhánh `feature/day20-self-evolving-agents`; hypotheses commit `4c9cb639906b0303c4fab523a9fdc4b5ee4d5d2d`; tag **freeze** tại commit riêng `fc1f6dd0ea21b585654ce281d334ee1c2cc03f86`, thời gian `2026-10-06T12:19:58+07:00`. Mọi eval bắt đầu sau commit/tag; skill nguyên bản không sửa, tag không di chuyển. [freeze-provenance.json](freeze-provenance.json) ghi sự cố Git CRLF và cách xử lý bằng cấu hình, không đổi byte skill. Bản nộp được chuẩn bị trên nhánh `main`; trạng thái gửi kho được ghi tại READINESS.md. Chưa nộp LMS.
+Nhánh `feature/day20-self-evolving-agents`; hypotheses commit `4c9cb639906b0303c4fab523a9fdc4b5ee4d5d2d`; tag **freeze** tại commit riêng `fc1f6dd0ea21b585654ce281d334ee1c2cc03f86`, thời gian `2026-10-06T12:19:58+07:00`. Mọi eval bắt đầu sau commit/tag; skill nguyên bản không sửa, tag không di chuyển. [freeze-provenance.json](freeze-provenance.json) ghi sự cố Git CRLF và cách xử lý bằng cấu hình, không đổi byte skill. Bản nộp đã được đẩy lên GitHub `main` kèm tag `freeze` và đối chiếu remote; chi tiết ở READINESS.md và publication.json. Chưa nộp LMS.
 
 ## 2. Giả thuyết đăng ký trước freeze
 
