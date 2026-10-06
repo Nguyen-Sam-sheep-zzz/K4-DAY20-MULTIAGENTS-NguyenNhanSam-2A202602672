@@ -1,0 +1,87 @@
+{
+  "task": "code-eval",
+  "condition": "skills-auto",
+  "role": "eval",
+  "error": null,
+  "timestamp": "2026-10-06T09:34:43.623861+00:00",
+  "skills_sha256": "648e0f3ab02acb02cb940dc4a0d83d07210b0bafb71f7f9a67780867a614fa86",
+  "seconds": 74.4,
+  "tokens": {
+    "input": 78988,
+    "output": 1982,
+    "total": 80970
+  },
+  "tool_calls": 22,
+  "subagent_calls": 0,
+  "skills_read": 1,
+  "skills_modified": false,
+  "final_message": [
+    {
+      "type": "text",
+      "text": "Fixed the documented behavior for `billable_blocks`, `parse_duration`, and `add_slot`, and added regression tests and changelog entries. The full test suite passes: **6 passed**.\n\nChanged: `workspace/bookings/billing.py`, `workspace/bookings/timeutil.py`, `workspace/bookings/schedule.py`, `workspace/bookings/calendar_export.py`, `workspace/tests/test_regressions.py`, and `workspace/CHANGELOG.md`.",
+      "annotations": [],
+      "id": "msg_0cdae0cf97eb28e6016ac4c102b59887d0b4a77742017b9470",
+      "phase": "final_answer"
+    }
+  ],
+  "score": 0.9090909090909091,
+  "passed": 10,
+  "total": 11,
+  "checks": [
+    {
+      "name": "visible_suite_passes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tests_not_modified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "parse_duration_all_formats",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "other_caller_fixed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "billable_blocks_round_up",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "add_slot_no_shared_state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "negative_minutes_rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_type_hints",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_regression_tests",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_changelog",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_version_bump",
+      "passed": false,
+      "detail": ""
+    }
+  ]
+}

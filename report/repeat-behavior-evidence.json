@@ -1,0 +1,311 @@
+[
+  {
+    "repetition": 1,
+    "condition": "baseline",
+    "task": "code-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 59926,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 1,
+    "condition": "baseline",
+    "task": "data-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 21489,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 1,
+    "condition": "baseline",
+    "task": "logs-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 20661,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 1,
+    "condition": "subagents",
+    "task": "code-eval",
+    "subagent_calls": 1,
+    "skills_read": 0,
+    "tokens": 76600,
+    "delegations": [
+      "{\"description\": \"Inspect workspace bookings package, source/docstrings/tests; identify required fixes while preserving tests. You may implement changes. Report changed paths, reasoning, and test results. Task: make whole suite pass, all functions satisfy docstrings, don't modify tests; adhere Python conventions.\", \"subagent_type\": \"explorer\"}"
+    ],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 1,
+    "condition": "subagents",
+    "task": "data-eval",
+    "subagent_calls": 2,
+    "skills_read": 0,
+    "tokens": 89696,
+    "delegations": [
+      "{\"description\": \"Inspect workspace/README.md and workspace/orders.json; determine exact Acme reporting conventions and calculate requested metrics. Do not edit files. Return methodology, duplicate detection, and final JSON content. Paths relative to sandbox root.\", \"subagent_type\": \"explorer\"}",
+      "{\"description\": \"Calculate requested outputs from workspace/orders.json. Follow README precisely: retain first event per id; normalize category by trimming and lowercasing; total strings parse comma amounts; -1 missing; March 2024 determined by UTC date. Compute category revenue whole file on retained events excluding unknown totals, distinct order counts, missing count, duplicate event count. Check Acme conventions if README states any. Return precise JSON and reasoning. Do not edit.\", \"subagent_type\": \"general-purpose\"}"
+    ],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 1,
+    "condition": "subagents",
+    "task": "logs-eval",
+    "subagent_calls": 1,
+    "skills_read": 0,
+    "tokens": 27521,
+    "delegations": [
+      "{\"description\": \"Inspect workspace/README.md and workspace/worker.log for the required log format and Acme-specific log-triage conventions. Do not create or edit files. Report parsing rules, especially ordering, timestamp handling, repeat lines, and expected JSON conventions.\", \"subagent_type\": \"explorer\"}"
+    ],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 1,
+    "condition": "skills-auto",
+    "task": "code-eval",
+    "subagent_calls": 0,
+    "skills_read": 1,
+    "tokens": 71363,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"skills/typed-regression-maintenance/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  },
+  {
+    "repetition": 1,
+    "condition": "skills-auto",
+    "task": "data-eval",
+    "subagent_calls": 0,
+    "skills_read": 2,
+    "tokens": 37829,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"skills/normalized-tabular-output/SKILL.md\", \"offset\": 0, \"limit\": 1000}",
+      "{\"file_path\": \"skills/structured-log-triage/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  },
+  {
+    "repetition": 1,
+    "condition": "skills-auto",
+    "task": "logs-eval",
+    "subagent_calls": 0,
+    "skills_read": 3,
+    "tokens": 20898,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"skills/structured-log-triage/SKILL.md\", \"offset\": 0, \"limit\": 1000}",
+      "{\"file_path\": \"skills/normalized-tabular-output/SKILL.md\", \"offset\": 0, \"limit\": 1000}",
+      "{\"file_path\": \"skills/typed-regression-maintenance/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  },
+  {
+    "repetition": 2,
+    "condition": "baseline",
+    "task": "code-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 61619,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 2,
+    "condition": "baseline",
+    "task": "data-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 16296,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 2,
+    "condition": "baseline",
+    "task": "logs-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 13742,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 2,
+    "condition": "subagents",
+    "task": "code-eval",
+    "subagent_calls": 1,
+    "skills_read": 0,
+    "tokens": 73943,
+    "delegations": [
+      "{\"description\": \"Inspect workspace/bookings and tests, identify defects vs docstrings and conventions. Do not edit. Report precise files and test strategy.\", \"subagent_type\": \"explorer\"}"
+    ],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 2,
+    "condition": "subagents",
+    "task": "data-eval",
+    "subagent_calls": 1,
+    "skills_read": 0,
+    "tokens": 58844,
+    "delegations": [
+      "{\"description\": \"Analyze workspace/orders.json and README conventions, calculate required metrics, determine any Acme reporting conventions visible in repository/data, and create workspace/answer.json. Follow first event per id, normalize category lowercase trimmed, missing total -1, parse amounts strings. Inspect output and report exact values/files changed.\", \"subagent_type\": \"general-purpose\"}"
+    ],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 2,
+    "condition": "subagents",
+    "task": "logs-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 36423,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 2,
+    "condition": "skills-auto",
+    "task": "code-eval",
+    "subagent_calls": 0,
+    "skills_read": 1,
+    "tokens": 80970,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"/skills/typed-regression-maintenance/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  },
+  {
+    "repetition": 2,
+    "condition": "skills-auto",
+    "task": "data-eval",
+    "subagent_calls": 0,
+    "skills_read": 1,
+    "tokens": 31167,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"skills/normalized-tabular-output/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  },
+  {
+    "repetition": 2,
+    "condition": "skills-auto",
+    "task": "logs-eval",
+    "subagent_calls": 0,
+    "skills_read": 1,
+    "tokens": 19767,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"/skills/structured-log-triage/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  },
+  {
+    "repetition": 3,
+    "condition": "baseline",
+    "task": "code-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 52504,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 3,
+    "condition": "baseline",
+    "task": "data-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 17772,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 3,
+    "condition": "baseline",
+    "task": "logs-eval",
+    "subagent_calls": 0,
+    "skills_read": 0,
+    "tokens": 27088,
+    "delegations": [],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 3,
+    "condition": "subagents",
+    "task": "code-eval",
+    "subagent_calls": 2,
+    "skills_read": 0,
+    "tokens": 104185,
+    "delegations": [
+      "{\"description\": \"Investigate the failing bookings package comprehensively. Inspect source and tests/docstrings, identify required fixes; do not edit tests. Report files, defects, proposed implementation and edge cases.\", \"subagent_type\": \"explorer\"}",
+      "{\"description\": \"Review intended fix scope for workspace/bookings based on task: docstrings are complete specification, tests untouched. Inspect files/docstrings and report any hidden edge cases/conventions; do not edit.\", \"subagent_type\": \"reviewer\"}"
+    ],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 3,
+    "condition": "subagents",
+    "task": "data-eval",
+    "subagent_calls": 1,
+    "skills_read": 0,
+    "tokens": 33156,
+    "delegations": [
+      "{\"description\": \"Inspect workspace/README.md and workspace/orders.json, determine Acme reporting conventions and required analysis/cleanup semantics. Do not modify files; report exact calculations and conventions, including duplicate-event identification.\", \"subagent_type\": \"explorer\"}"
+    ],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 3,
+    "condition": "subagents",
+    "task": "logs-eval",
+    "subagent_calls": 1,
+    "skills_read": 0,
+    "tokens": 31741,
+    "delegations": [
+      "{\"description\": \"Inspect workspace/README.md and workspace/worker.log, determine exact parsing requirements including Acme log-triage conventions, then create workspace/errors.json accordingly. Follow task rules precisely. Return a brief report of conventions and output created.\", \"subagent_type\": \"explorer\"}"
+    ],
+    "skill_read_calls": []
+  },
+  {
+    "repetition": 3,
+    "condition": "skills-auto",
+    "task": "code-eval",
+    "subagent_calls": 0,
+    "skills_read": 1,
+    "tokens": 98266,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"/skills/typed-regression-maintenance/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  },
+  {
+    "repetition": 3,
+    "condition": "skills-auto",
+    "task": "data-eval",
+    "subagent_calls": 0,
+    "skills_read": 1,
+    "tokens": 48070,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"/skills/normalized-tabular-output/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  },
+  {
+    "repetition": 3,
+    "condition": "skills-auto",
+    "task": "logs-eval",
+    "subagent_calls": 0,
+    "skills_read": 1,
+    "tokens": 21354,
+    "delegations": [],
+    "skill_read_calls": [
+      "{\"file_path\": \"/skills/structured-log-triage/SKILL.md\", \"offset\": 0, \"limit\": 1000}"
+    ]
+  }
+]

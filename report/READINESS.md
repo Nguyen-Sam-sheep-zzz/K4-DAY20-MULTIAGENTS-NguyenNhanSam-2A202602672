@@ -23,7 +23,7 @@ Kiểm chứng cục bộ ngày 06/10/2026. “Đạt” dưới đây nói về
 | 6.2 Phân tích (8đ) | Đạt | Mục 8 đủ learn/eval, kỹ thuật/quy ước, trace, token, leakage, dev/frozen noise. |
 | 6.3 Hạn chế (4đ) | Đạt | Mục 9 có sáu hạn chế và ảnh hưởng đến kết luận. |
 | 6.4 Trình bày/tái lập (4đ) | Đạt | Đủ 10 mục, tour, model/tham số/phiên bản/commit; RUN_COMMANDS.md. |
-| Phần thưởng mở rộng (+5) | Chưa làm, tùy chọn | Không có thêm 18 lượt 6e; không ghi nhận điểm thưởng. |
+| Phần thưởng mở rộng (+5) | Đã thực hiện 6e, chờ giảng viên chấm | Hai vòng/18 run bổ sung riêng; mean/min–max, đối chiếu chính thức, cơ chế trace, hạn chế, công cụ stdlib tái lập. REPEATS_6E.md/repeat-audit.json. |
 | Không sửa tệp cấm | Đạt | 53 đối chiếu SHA, AST bốn module; provided/tests/tasks/scripts và hằng/helper/chữ ký/docstring giữ nguyên. |
 | Không lộ khóa | Đạt trong phạm vi scan | .env ignored/untracked, đối chiếu literal secret cục bộ; .dockerignore loại khỏi build context. |
 | Số liệu khớp | Đạt | final-audit.json: 18 records/traces, table matching; final-metrics.json budget 22 lượt. |
@@ -43,3 +43,15 @@ Kiểm chứng cục bộ ngày 06/10/2026. “Đạt” dưới đây nói về
 Từ PowerShell, thực hiện các lệnh offline ở RUN_COMMANDS.md. Trên clone Windows mới, giữ LF khi clone theo RUN_COMMANDS.md và chạy hash/verifier trong Docker Linux. Không chạy lại curator hoặc ghi đè kết quả cũ.
 
 Phần bắt buộc đã có trên **GitHub main cùng tag freeze**, đủ để nộp liên kết kho. Chưa nộp LMS hoặc xác minh hạn nộp của lớp.
+
+## Đối chiếu năm tiêu chí thưởng 6e
+
+| Tiêu chí | Bằng chứng |
+|---|---|
+| Thiết kế riêng, rõ ràng (+1) | repeat-design.json, results/repeat-2 và repeat-3; không đổi bảng chính thức. |
+| Số liệu so với chính thức (+1) | repeat-table.md/metrics: 3 lượt mỗi bài/điều kiện, mean/min–max score/token. |
+| Cơ chế từ trace (+1) | REPEATS_6E.md: source basename/meta, số task calls, tool timeout/regression recovery. |
+| Hạn chế/bước tiếp theo (+1) | Ba mẫu, bài cố định, thứ tự chưa ngẫu nhiên; đề xuất nhiệm vụ mới/lặp cân bằng, đăng ký trước. |
+| Mã/tái lập (+1) | docs/runtime/analyze_repeats.py stdlib; 27 records audit và 6 skill runs thêm; 29/29 tests. |
+
+Đã có đủ bằng chứng cho năm tiêu chí thưởng; điểm thực tế do giảng viên quyết định và tổng điểm không vượt 100.

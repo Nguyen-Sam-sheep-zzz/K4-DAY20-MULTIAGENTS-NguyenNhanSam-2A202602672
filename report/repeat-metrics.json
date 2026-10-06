@@ -1,0 +1,781 @@
+{
+  "design": {
+    "design": "6e: two additional sequential evaluation repetitions per condition, compared with original evaluation run",
+    "conditions": [
+      "baseline",
+      "subagents",
+      "skills-auto"
+    ],
+    "tasks": [
+      "code-eval",
+      "data-eval",
+      "logs-eval"
+    ],
+    "additional_task_runs": 18,
+    "new_results_roots": [
+      "results/repeat-2",
+      "results/repeat-3"
+    ],
+    "model": "gpt-6-luna",
+    "temperature": 0.0,
+    "recursion_limit": 60,
+    "freeze_commit": "fc1f6dd0ea21b585654ce281d334ee1c2cc03f86",
+    "skill_hash_linux": "648e0f3ab02acb02cb940dc4a0d83d07210b0bafb71f7f9a67780867a614fa86",
+    "skill_file_sha256": {
+      "skills/auto/normalized-tabular-output/SKILL.md": "33883ab0688a963233078cced84146236a2c2ead2a116c7abe3eca35b1e83842",
+      "skills/auto/structured-log-triage/SKILL.md": "cdb03a8208e3bd8b4c89a120dde0f09450b485e50094609c3484a960b9a5ae5c",
+      "skills/auto/typed-regression-maintenance/SKILL.md": "1a9c14b16579f8b5b249e50d2c95dff57f63af4b0e5bf65a7c775b80eac67a6c"
+    },
+    "official_run_sha256": {
+      "results/baseline/code-eval/run.json": "4dfd78f7ba8cf5bdfd201d1c3ef698df90c30673d188e8cf0fef279eed4b76a6",
+      "results/baseline/data-eval/run.json": "97df27191f3452f391fa3765f0c1dbd38b41520b26f91562e466188c177da2b7",
+      "results/baseline/logs-eval/run.json": "29763cf41a68795a6b68aab30699d6b4d9a01191df2fc2363c187e6b40596df3",
+      "results/subagents/code-eval/run.json": "6e6715a8fb17fdbba49ddd8b999a4bc12787140d64808dd730a578238150fa1f",
+      "results/subagents/data-eval/run.json": "86027abcb3c5d4d36802fdb6aff25d0ca30f9ac7e14e77b555df878c40236193",
+      "results/subagents/logs-eval/run.json": "5e7b9ff3c2318490f1ba3e84359745de2b2c9456cb1dec64055109e32657b38e",
+      "results/skills-auto/code-eval/run.json": "345b01223f480bcb74ccb57f62844f820aa1e1769b6e7920e9c4d200311c3d62",
+      "results/skills-auto/data-eval/run.json": "4536e0204791829a0c74451508fd1d5eb0bf4942d2672c7636b815aac499098f",
+      "results/skills-auto/logs-eval/run.json": "87e5363152883ce3c0633e78194aa99653f8582b5c80fc7bd61610356d66c2ce"
+    },
+    "analysis": "Per-task score/token mean and min-max across three runs; per-round condition mean score; trace mechanisms; no cherry-picking; no edits to prompts/model/skills/checkers.",
+    "started_after_original_publication": true,
+    "configuration_reverified": {
+      "model": "gpt-6-luna",
+      "temperature": 0.0,
+      "method": "make_model construction in Docker; no extra inference call"
+    }
+  },
+  "per_task": [
+    {
+      "condition": "baseline",
+      "task": "code-eval",
+      "runs": 3,
+      "scores": [
+        0.6363636363636364,
+        0.6363636363636364,
+        0.6363636363636364
+      ],
+      "passed_total": [
+        "7/11",
+        "7/11",
+        "7/11"
+      ],
+      "score": {
+        "mean": 0.6363636363636364,
+        "min": 0.6363636363636364,
+        "max": 0.6363636363636364
+      },
+      "tokens": {
+        "mean": 58016.333333333336,
+        "min": 52504,
+        "max": 61619
+      },
+      "token_samples": [
+        59926,
+        61619,
+        52504
+      ],
+      "seconds": {
+        "mean": 70.46666666666667,
+        "min": 63.2,
+        "max": 74.7
+      },
+      "subagent_calls": [
+        0,
+        0,
+        0
+      ],
+      "skills_read": [
+        0,
+        0,
+        0
+      ],
+      "failed_checks": [
+        [
+          "rule_type_hints",
+          "rule_regression_tests",
+          "rule_changelog",
+          "rule_version_bump"
+        ],
+        [
+          "rule_type_hints",
+          "rule_regression_tests",
+          "rule_changelog",
+          "rule_version_bump"
+        ],
+        [
+          "rule_type_hints",
+          "rule_regression_tests",
+          "rule_changelog",
+          "rule_version_bump"
+        ]
+      ]
+    },
+    {
+      "condition": "baseline",
+      "task": "data-eval",
+      "runs": 3,
+      "scores": [
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556
+      ],
+      "passed_total": [
+        "5/9",
+        "5/9",
+        "5/9"
+      ],
+      "score": {
+        "mean": 0.5555555555555556,
+        "min": 0.5555555555555556,
+        "max": 0.5555555555555556
+      },
+      "tokens": {
+        "mean": 18519,
+        "min": 16296,
+        "max": 21489
+      },
+      "token_samples": [
+        21489,
+        16296,
+        17772
+      ],
+      "seconds": {
+        "mean": 28.9,
+        "min": 27.9,
+        "max": 30.4
+      },
+      "subagent_calls": [
+        0,
+        0,
+        0
+      ],
+      "skills_read": [
+        0,
+        0,
+        0
+      ],
+      "failed_checks": [
+        [
+          "rule_money_in_cents",
+          "rule_meta_block",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ],
+        [
+          "rule_money_in_cents",
+          "rule_meta_block",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ],
+        [
+          "rule_money_in_cents",
+          "rule_meta_block",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ]
+      ]
+    },
+    {
+      "condition": "baseline",
+      "task": "logs-eval",
+      "runs": 3,
+      "scores": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "passed_total": [
+        "6/10",
+        "6/10",
+        "6/10"
+      ],
+      "score": {
+        "mean": 0.6,
+        "min": 0.6,
+        "max": 0.6
+      },
+      "tokens": {
+        "mean": 20497,
+        "min": 13742,
+        "max": 27088
+      },
+      "token_samples": [
+        20661,
+        13742,
+        27088
+      ],
+      "seconds": {
+        "mean": 28.066666666666666,
+        "min": 18.8,
+        "max": 33.7
+      },
+      "subagent_calls": [
+        0,
+        0,
+        0
+      ],
+      "skills_read": [
+        0,
+        0,
+        0
+      ],
+      "failed_checks": [
+        [
+          "rule_service_names",
+          "rule_sorted_errors",
+          "rule_schema_header",
+          "rule_source_line"
+        ],
+        [
+          "rule_service_names",
+          "rule_sorted_errors",
+          "rule_schema_header",
+          "rule_source_line"
+        ],
+        [
+          "rule_service_names",
+          "rule_sorted_errors",
+          "rule_schema_header",
+          "rule_source_line"
+        ]
+      ]
+    },
+    {
+      "condition": "subagents",
+      "task": "code-eval",
+      "runs": 3,
+      "scores": [
+        0.6363636363636364,
+        0.6363636363636364,
+        0.6363636363636364
+      ],
+      "passed_total": [
+        "7/11",
+        "7/11",
+        "7/11"
+      ],
+      "score": {
+        "mean": 0.6363636363636364,
+        "min": 0.6363636363636364,
+        "max": 0.6363636363636364
+      },
+      "tokens": {
+        "mean": 84909.33333333333,
+        "min": 73943,
+        "max": 104185
+      },
+      "token_samples": [
+        76600,
+        73943,
+        104185
+      ],
+      "seconds": {
+        "mean": 162.6,
+        "min": 99.3,
+        "max": 265.8
+      },
+      "subagent_calls": [
+        1,
+        1,
+        2
+      ],
+      "skills_read": [
+        0,
+        0,
+        0
+      ],
+      "failed_checks": [
+        [
+          "rule_type_hints",
+          "rule_regression_tests",
+          "rule_changelog",
+          "rule_version_bump"
+        ],
+        [
+          "rule_type_hints",
+          "rule_regression_tests",
+          "rule_changelog",
+          "rule_version_bump"
+        ],
+        [
+          "rule_type_hints",
+          "rule_regression_tests",
+          "rule_changelog",
+          "rule_version_bump"
+        ]
+      ]
+    },
+    {
+      "condition": "subagents",
+      "task": "data-eval",
+      "runs": 3,
+      "scores": [
+        0.5555555555555556,
+        0.5555555555555556,
+        0.5555555555555556
+      ],
+      "passed_total": [
+        "5/9",
+        "5/9",
+        "5/9"
+      ],
+      "score": {
+        "mean": 0.5555555555555556,
+        "min": 0.5555555555555556,
+        "max": 0.5555555555555556
+      },
+      "tokens": {
+        "mean": 60565.333333333336,
+        "min": 33156,
+        "max": 89696
+      },
+      "token_samples": [
+        89696,
+        58844,
+        33156
+      ],
+      "seconds": {
+        "mean": 69.36666666666666,
+        "min": 50.2,
+        "max": 87.8
+      },
+      "subagent_calls": [
+        2,
+        1,
+        1
+      ],
+      "skills_read": [
+        0,
+        0,
+        0
+      ],
+      "failed_checks": [
+        [
+          "rule_money_in_cents",
+          "rule_meta_block",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ],
+        [
+          "rule_money_in_cents",
+          "rule_meta_block",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ],
+        [
+          "rule_money_in_cents",
+          "rule_meta_block",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ]
+      ]
+    },
+    {
+      "condition": "subagents",
+      "task": "logs-eval",
+      "runs": 3,
+      "scores": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "passed_total": [
+        "6/10",
+        "6/10",
+        "6/10"
+      ],
+      "score": {
+        "mean": 0.6,
+        "min": 0.6,
+        "max": 0.6
+      },
+      "tokens": {
+        "mean": 31895,
+        "min": 27521,
+        "max": 36423
+      },
+      "token_samples": [
+        27521,
+        36423,
+        31741
+      ],
+      "seconds": {
+        "mean": 48.03333333333333,
+        "min": 41.0,
+        "max": 54.2
+      },
+      "subagent_calls": [
+        1,
+        0,
+        1
+      ],
+      "skills_read": [
+        0,
+        0,
+        0
+      ],
+      "failed_checks": [
+        [
+          "rule_service_names",
+          "rule_sorted_errors",
+          "rule_schema_header",
+          "rule_source_line"
+        ],
+        [
+          "rule_service_names",
+          "rule_sorted_errors",
+          "rule_schema_header",
+          "rule_source_line"
+        ],
+        [
+          "rule_service_names",
+          "rule_sorted_errors",
+          "rule_schema_header",
+          "rule_source_line"
+        ]
+      ]
+    },
+    {
+      "condition": "skills-auto",
+      "task": "code-eval",
+      "runs": 3,
+      "scores": [
+        0.9090909090909091,
+        0.9090909090909091,
+        0.9090909090909091
+      ],
+      "passed_total": [
+        "10/11",
+        "10/11",
+        "10/11"
+      ],
+      "score": {
+        "mean": 0.9090909090909091,
+        "min": 0.9090909090909091,
+        "max": 0.9090909090909091
+      },
+      "tokens": {
+        "mean": 83533,
+        "min": 71363,
+        "max": 98266
+      },
+      "token_samples": [
+        71363,
+        80970,
+        98266
+      ],
+      "seconds": {
+        "mean": 77.56666666666666,
+        "min": 74.3,
+        "max": 84.0
+      },
+      "subagent_calls": [
+        0,
+        0,
+        0
+      ],
+      "skills_read": [
+        1,
+        1,
+        1
+      ],
+      "failed_checks": [
+        [
+          "rule_version_bump"
+        ],
+        [
+          "rule_version_bump"
+        ],
+        [
+          "rule_version_bump"
+        ]
+      ]
+    },
+    {
+      "condition": "skills-auto",
+      "task": "data-eval",
+      "runs": 3,
+      "scores": [
+        0.5555555555555556,
+        0.6666666666666666,
+        0.6666666666666666
+      ],
+      "passed_total": [
+        "5/9",
+        "6/9",
+        "6/9"
+      ],
+      "score": {
+        "mean": 0.6296296296296297,
+        "min": 0.5555555555555556,
+        "max": 0.6666666666666666
+      },
+      "tokens": {
+        "mean": 39022,
+        "min": 31167,
+        "max": 48070
+      },
+      "token_samples": [
+        37829,
+        31167,
+        48070
+      ],
+      "seconds": {
+        "mean": 35.66666666666667,
+        "min": 30.2,
+        "max": 46.2
+      },
+      "subagent_calls": [
+        0,
+        0,
+        0
+      ],
+      "skills_read": [
+        2,
+        1,
+        1
+      ],
+      "failed_checks": [
+        [
+          "rule_money_in_cents",
+          "rule_meta_block",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ],
+        [
+          "rule_money_in_cents",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ],
+        [
+          "rule_money_in_cents",
+          "rule_clean_csv",
+          "rule_sorted_keys_format"
+        ]
+      ]
+    },
+    {
+      "condition": "skills-auto",
+      "task": "logs-eval",
+      "runs": 3,
+      "scores": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "passed_total": [
+        "9/10",
+        "9/10",
+        "9/10"
+      ],
+      "score": {
+        "mean": 0.9,
+        "min": 0.9,
+        "max": 0.9
+      },
+      "tokens": {
+        "mean": 20673,
+        "min": 19767,
+        "max": 21354
+      },
+      "token_samples": [
+        20898,
+        19767,
+        21354
+      ],
+      "seconds": {
+        "mean": 23.833333333333332,
+        "min": 22.1,
+        "max": 25.5
+      },
+      "subagent_calls": [
+        0,
+        0,
+        0
+      ],
+      "skills_read": [
+        3,
+        1,
+        1
+      ],
+      "failed_checks": [
+        [
+          "rule_source_line"
+        ],
+        [
+          "rule_source_line"
+        ],
+        [
+          "rule_source_line"
+        ]
+      ]
+    }
+  ],
+  "per_condition": [
+    {
+      "condition": "baseline",
+      "runs": 9,
+      "score": {
+        "mean": 0.5973063973063973,
+        "min": 0.5555555555555556,
+        "max": 0.6363636363636364
+      },
+      "round_mean_scores": [
+        0.5973063973063973,
+        0.5973063973063973,
+        0.5973063973063973
+      ],
+      "round_mean_score_range": {
+        "mean": 0.5973063973063973,
+        "min": 0.5973063973063973,
+        "max": 0.5973063973063973
+      },
+      "tokens": {
+        "mean": 32344.11111111111,
+        "min": 13742,
+        "max": 61619
+      },
+      "seconds": {
+        "mean": 42.47777777777778,
+        "min": 18.8,
+        "max": 74.7
+      },
+      "score_per_million_tokens": 18.467237985130648,
+      "total_tokens": 291097,
+      "runs_read_skill": 0,
+      "subagent_calls": 0,
+      "technical": {
+        "passed": 54,
+        "total": 54
+      },
+      "rules": {
+        "passed": 0,
+        "total": 36
+      }
+    },
+    {
+      "condition": "subagents",
+      "runs": 9,
+      "score": {
+        "mean": 0.5973063973063973,
+        "min": 0.5555555555555556,
+        "max": 0.6363636363636364
+      },
+      "round_mean_scores": [
+        0.5973063973063973,
+        0.5973063973063973,
+        0.5973063973063973
+      ],
+      "round_mean_score_range": {
+        "mean": 0.5973063973063973,
+        "min": 0.5973063973063973,
+        "max": 0.5973063973063973
+      },
+      "tokens": {
+        "mean": 59123.22222222222,
+        "min": 27521,
+        "max": 104185
+      },
+      "seconds": {
+        "mean": 93.33333333333333,
+        "min": 41.0,
+        "max": 265.8
+      },
+      "score_per_million_tokens": 10.102737551436974,
+      "total_tokens": 532109,
+      "runs_read_skill": 0,
+      "subagent_calls": 10,
+      "technical": {
+        "passed": 54,
+        "total": 54
+      },
+      "rules": {
+        "passed": 0,
+        "total": 36
+      }
+    },
+    {
+      "condition": "skills-auto",
+      "runs": 9,
+      "score": {
+        "mean": 0.8129068462401796,
+        "min": 0.5555555555555556,
+        "max": 0.9090909090909091
+      },
+      "round_mean_scores": [
+        0.7882154882154883,
+        0.8252525252525252,
+        0.8252525252525252
+      ],
+      "round_mean_score_range": {
+        "mean": 0.8129068462401796,
+        "min": 0.7882154882154883,
+        "max": 0.8252525252525252
+      },
+      "tokens": {
+        "mean": 47742.666666666664,
+        "min": 19767,
+        "max": 98266
+      },
+      "seconds": {
+        "mean": 45.68888888888889,
+        "min": 22.1,
+        "max": 84.0
+      },
+      "score_per_million_tokens": 17.02684208898078,
+      "total_tokens": 429684,
+      "runs_read_skill": 9,
+      "subagent_calls": 0,
+      "technical": {
+        "passed": 54,
+        "total": 54
+      },
+      "rules": {
+        "passed": 20,
+        "total": 36
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "condition": "subagents",
+      "reference": "baseline",
+      "round_mean_score_gains": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gain": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "mean_token_ratio": 1.827943949954826
+    },
+    {
+      "condition": "skills-auto",
+      "reference": "baseline",
+      "round_mean_score_gains": [
+        0.19090909090909092,
+        0.2279461279461279,
+        0.2279461279461279
+      ],
+      "gain": {
+        "mean": 0.21560044893378225,
+        "min": 0.19090909090909092,
+        "max": 0.2279461279461279
+      },
+      "mean_token_ratio": 1.476085291157243
+    }
+  ],
+  "budget": {
+    "additional_task_runs": 18,
+    "additional_tokens": 826907,
+    "all_task_attempts": 40,
+    "all_recorded_task_tokens": 1955772,
+    "api_smoke_tokens": 16,
+    "curator_calls": 1,
+    "curator_tokens": "not captured"
+  }
+}

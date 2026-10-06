@@ -1,0 +1,46 @@
+{
+  "design": "6e: two additional sequential evaluation repetitions per condition, compared with original evaluation run",
+  "conditions": [
+    "baseline",
+    "subagents",
+    "skills-auto"
+  ],
+  "tasks": [
+    "code-eval",
+    "data-eval",
+    "logs-eval"
+  ],
+  "additional_task_runs": 18,
+  "new_results_roots": [
+    "results/repeat-2",
+    "results/repeat-3"
+  ],
+  "model": "gpt-6-luna",
+  "temperature": 0.0,
+  "recursion_limit": 60,
+  "freeze_commit": "fc1f6dd0ea21b585654ce281d334ee1c2cc03f86",
+  "skill_hash_linux": "648e0f3ab02acb02cb940dc4a0d83d07210b0bafb71f7f9a67780867a614fa86",
+  "skill_file_sha256": {
+    "skills/auto/normalized-tabular-output/SKILL.md": "33883ab0688a963233078cced84146236a2c2ead2a116c7abe3eca35b1e83842",
+    "skills/auto/structured-log-triage/SKILL.md": "cdb03a8208e3bd8b4c89a120dde0f09450b485e50094609c3484a960b9a5ae5c",
+    "skills/auto/typed-regression-maintenance/SKILL.md": "1a9c14b16579f8b5b249e50d2c95dff57f63af4b0e5bf65a7c775b80eac67a6c"
+  },
+  "official_run_sha256": {
+    "results/baseline/code-eval/run.json": "4dfd78f7ba8cf5bdfd201d1c3ef698df90c30673d188e8cf0fef279eed4b76a6",
+    "results/baseline/data-eval/run.json": "97df27191f3452f391fa3765f0c1dbd38b41520b26f91562e466188c177da2b7",
+    "results/baseline/logs-eval/run.json": "29763cf41a68795a6b68aab30699d6b4d9a01191df2fc2363c187e6b40596df3",
+    "results/subagents/code-eval/run.json": "6e6715a8fb17fdbba49ddd8b999a4bc12787140d64808dd730a578238150fa1f",
+    "results/subagents/data-eval/run.json": "86027abcb3c5d4d36802fdb6aff25d0ca30f9ac7e14e77b555df878c40236193",
+    "results/subagents/logs-eval/run.json": "5e7b9ff3c2318490f1ba3e84359745de2b2c9456cb1dec64055109e32657b38e",
+    "results/skills-auto/code-eval/run.json": "345b01223f480bcb74ccb57f62844f820aa1e1769b6e7920e9c4d200311c3d62",
+    "results/skills-auto/data-eval/run.json": "4536e0204791829a0c74451508fd1d5eb0bf4942d2672c7636b815aac499098f",
+    "results/skills-auto/logs-eval/run.json": "87e5363152883ce3c0633e78194aa99653f8582b5c80fc7bd61610356d66c2ce"
+  },
+  "analysis": "Per-task score/token mean and min-max across three runs; per-round condition mean score; trace mechanisms; no cherry-picking; no edits to prompts/model/skills/checkers.",
+  "started_after_original_publication": true,
+  "configuration_reverified": {
+    "model": "gpt-6-luna",
+    "temperature": 0.0,
+    "method": "make_model construction in Docker; no extra inference call"
+  }
+}

@@ -8,7 +8,7 @@
 
 Mô hình thực tế **gpt-6-luna**, temperature **0.0**, recursion_limit **60**, cùng cấu hình cho cả ba điều kiện. API smoke qua `make_model()` trả OK, 16 token. Docker Linux trên Windows: Python 3.12.15, Deep Agents 0.7.21, LangChain 1.4.3, langchain-core 1.6.6, langchain-openai 1.6.7, pytest 9.1.1 và Git 2.47.3. Phiên bản/cấu hình không chứa secret ở [environment.json](environment.json), [requirements-resolved.txt](requirements-resolved.txt), [api-smoke.json](api-smoke.json).
 
-Đã chạy **22 lượt tác vụ**: 18 chính thức, 3 dev trước freeze, 1 code-learn lưu trữ do CRLF; cộng 1 lần curator và API smoke. Tổng token đo cho tác vụ **1.128.865**, trong đó chính thức 932.473, dev 151.624, lượt CRLF 44.768. Smoke thêm 16 token; **không có số token curator** vì CLI provided không ghi usage. Không coi tổng này là tổng chi phí tiền. Không thực hiện 18 lượt lặp tùy chọn.
+Giai đoạn bắt buộc đã chạy **22 lượt tác vụ**: 18 chính thức, 3 dev trước freeze, 1 code-learn lưu trữ do CRLF; cộng 1 lần curator và API smoke. Tổng token đo cho tác vụ **1.128.865**, trong đó chính thức 932.473, dev 151.624, lượt CRLF 44.768. Smoke thêm 16 token; **không có số token curator** vì CLI provided không ghi usage. Không coi tổng này là tổng chi phí tiền. Sau khi phần bắt buộc được push, người dùng yêu cầu 6e: thêm **18 lượt eval**, **826.907 token**. Cộng dồn **40 lượt tác vụ**, **1.955.772 token đo**, cộng smoke 16 token, curator chưa ghi usage; số liệu đầy đủ ở [repeat-metrics.json](repeat-metrics.json).
 
 Nhánh `feature/day20-self-evolving-agents`; hypotheses commit `4c9cb639906b0303c4fab523a9fdc4b5ee4d5d2d`; tag **freeze** tại commit riêng `fc1f6dd0ea21b585654ce281d334ee1c2cc03f86`, thời gian `2026-10-06T12:19:58+07:00`. Mọi eval bắt đầu sau commit/tag; skill nguyên bản không sửa, tag không di chuyển. [freeze-provenance.json](freeze-provenance.json) ghi sự cố Git CRLF và cách xử lý bằng cấu hình, không đổi byte skill. Bản nộp đã được đẩy lên GitHub `main` kèm tag `freeze` và đối chiếu remote; chi tiết ở READINESS.md và publication.json. Chưa nộp LMS.
 
@@ -168,7 +168,7 @@ Cùng hash, model và temperature=0 vẫn có lệch **4,17 điểm phần trăm
 
 ## 9. Hạn chế và tính hợp lệ
 
-1. **Mẫu nhỏ, một lượt chính thức mỗi cấu hình/tác vụ:** ba eval không đại diện miền công việc rộng, không kiểm định được ý nghĩa thống kê. Dev chỉ lặp learn; chưa đo noise eval.
+1. **Mẫu nhỏ, một lượt chính thức mỗi cấu hình/tác vụ:** ba eval không đại diện miền công việc rộng, không kiểm định được ý nghĩa thống kê. Phần 6e đã thêm hai lượt eval nhưng vẫn chỉ ba lượt mỗi cặp trên cùng ba bài, chưa có khoảng tin cậy hay kiểm định thống kê; xem phụ lục 6e.
 2. **Một mô hình/cổng API:** gpt-6-luna ở temperature=0 vẫn biến thiên; kết luận phụ thuộc provider, công cụ và phiên bản thư viện. Không so mô hình khác.
 3. **Quy ước do giảng viên thiết kế:** feedback learn nêu rõ rule, nên tăng điểm chủ yếu là truyền tri thức; không đồng nghĩa tăng năng lực suy luận trên dữ liệu thực ngoài lab.
 4. **Quan sát chưa đầy đủ:** render_trace provided chỉ giữ luồng chính và cắt 1.500 ký tự/message; API trả content dạng list với encrypted reasoning làm phần text có thể bị cắt. Token có cộng subagent, tool/skill counts không bao gồm nội bộ subagent. Chỉ diễn giải những thao tác nhìn thấy được.
@@ -181,14 +181,14 @@ Skills-auto tăng điểm mean eval từ 59,73% lên 78,82%, chủ yếu nhờ c
 Subagents không tăng điểm trong sáu tác vụ, dù token tăng khoảng gấp đôi baseline.
 Đọc skill không đảm bảo làm theo: data-eval vẫn 5/9, và cả ba quy ước mới đều trượt.
 Cùng bộ skill cho mean learn lệch 4,17 điểm phần trăm giữa hai lượt, nên chưa khẳng định cải thiện ổn định ngoài thí nghiệm nhỏ này.
-Bước tiếp theo là lặp eval với budget riêng, giữ freeze, và ở một thí nghiệm mới cải thiện khả năng trích đủ convention và kiểm tra thực thi checklist.
+Phần 6e cho mean eval ba lượt skills-auto 81,29% so baseline/subagents 59,73%, nhưng baseline có tỷ lệ điểm/token cao nhất; bước tiếp theo là đo trên nhiệm vụ mới với thiết kế đăng ký trước.
 
 ## Phụ lục: tái lập và nguồn
 
 - [RUN_COMMANDS.md](RUN_COMMANDS.md): lệnh PowerShell/Docker, thứ tự thực hiện, cách đọc kết quả không gọi API và cách tránh ghi đè.
-- [final-metrics.json](final-metrics.json): số liệu đầy đủ và budget 22 lượt; [PROGRESS.md](PROGRESS.md): checkpoint.
+- [final-metrics.json](final-metrics.json): số liệu giai đoạn bắt buộc và budget 22 lượt; [PROGRESS.md](PROGRESS.md): checkpoint.
 - [offline-final.xml](offline-final.xml): 29/29 test gốc đạt; test provided dùng model giả, không đưa vào budget tác vụ thật. [source-integrity.json](source-integrity.json) và SHA manifest đối chiếu phạm vi được sửa.
-- Chỉ có một retry code-learn do CRLF; giữ lượt đầu. Không retry eval, không sửa/xóa skill, không rerun curator. Không thực hiện phần 6e tùy chọn do đã hoàn thành phần bắt buộc; không tự mở rộng thêm 18 lượt API.
+- Chỉ có một retry code-learn do CRLF; giữ lượt đầu. Không retry eval, không sửa/xóa skill, không rerun curator. Đã bổ sung 18 lượt 6e sau khi người dùng yêu cầu; không retry các lượt bổ sung hoặc chỉnh skill.
 - Raw trace giữ nguyên cả whitespace và các lệnh lỗi đã phục hồi; không biên tập để làm đẹp bằng chứng. Code/skill/docs không có whitespace lỗi; kiểm tra khóa bằng đối chiếu literal .env cục bộ, không in giá trị.
 
 Tài liệu tham khảo:
@@ -196,3 +196,19 @@ Tài liệu tham khảo:
 1. [SkillsBench official README](https://github.com/benchflow-ai/skillsbench), bản đọc ngày 06/10/2026 lưu ở [skillsbench-source.md](skillsbench-source.md): benchmark hiệu quả và hành vi sử dụng skill theo các workflow/skill-composition tasks. README đọc được không có kết quả bài báo để kiểm chứng các con số nghiên cứu.
 2. Hướng dẫn môn học [02_subagents](../guides/pseudocode/02_subagents.md), [04_curator](../guides/pseudocode/04_curator.md), [05_skill_quality](../guides/pseudocode/05_skill_quality.md): context tách biệt, overhead, generalization/overfitting, description và đọc/làm theo. Hướng dẫn có dẫn SkillsBench/SkillEvolBench/Anthropic; các thống kê được dẫn ở đây **không coi là kết quả tự kiểm chứng**.
 3. Các truy cập bài gốc khác gặp HTTP 403/429; không trích số liệu định lượng chưa xác minh. Giả thuyết dựa vào dữ liệu learn của lab và căn cứ định tính có nguồn; các kết luận định lượng chỉ dùng run.json của thí nghiệm này.
+
+## Phụ lục 6e: lặp eval để đo nhiễu
+
+Thiết kế và phân tích đầy đủ ở [REPEATS_6E.md](REPEATS_6E.md); bảng tái sinh tại [repeat-table.md](repeat-table.md), số liệu chính xác ở [repeat-metrics.json](repeat-metrics.json). Hai vòng bổ sung được lưu riêng trong results/repeat-2 và repeat-3, không thay bảng chính thức mục 7, không sửa H1–H3/skill/tag.
+
+| Điều kiện | Mean eval qua 3 vòng | Khoảng mean theo vòng | Mean token/run | Điểm/triệu token |
+|---|---:|---:|---:|---:|
+| baseline | 0,597306 | 0,597306–0,597306 | 32.344,11 | 18,47 |
+| subagents | 0,597306 | 0,597306–0,597306 | 59.123,22 | 10,10 |
+| skills-auto | 0,812907 | 0,788215–0,825253 | 47.742,67 | 17,03 |
+
+Skills-auto code/log giữ 10/11 và 9/10 cả ba lần; data 5/9, 6/9, 6/9 do meta.source lần đầu chứa workspace/ còn hai lượt sau dùng basename đúng. Gain mean so baseline **21,56 điểm phần trăm**, nhưng thêm token **1,48 lần**; subagents không tăng điểm, token **1,83 lần**. Tổng kỹ thuật **54/54** mỗi điều kiện, quy ước skills-auto **20/36**, baseline/subagents **0/36**. Ba quy ước mới vẫn không đạt. Sau ba lượt, baseline đứng đầu điểm/token; lợi thế nhỏ của skills-auto về tỷ số này trong lượt chính thức không lặp lại khi gộp dữ liệu.
+
+Dao động chi phí có bằng chứng từ trace: code subagent gọi 1/1/2 lần với token 76.600/73.943/104.185; data skills-auto vòng 3 có hai tool timeout sai tham số rồi phục hồi. Đây là cơ chế quan sát, chưa cô lập nguyên nhân nhân quả; trace không có nội bộ subagent. Min–max là dao động quan sát của ba mẫu, không phải khoảng tin cậy; cùng ba nhiệm vụ lặp lại không đại diện ba bộ nhiệm vụ mới.
+
+Đủ 18 run/trace bổ sung không error/skill edit; sáu skill runs bổ sung cùng hash/timestamp sau freeze được kiểm tra riêng bởi docs/runtime/analyze_repeats.py. Verifier gốc sáu run chính thức vẫn OK, 29 tests gốc đạt sau 6e. Phần thêm dùng **826.907 token**, cộng dồn lab **40 lượt tác vụ / 1.955.772 token**, chưa tính curator usage. Bước tiếp theo là thử nhiệm vụ mới hoặc lặp với thứ tự cấu hình cân bằng/ngẫu nhiên và budget riêng, giữ provenance rõ ràng.

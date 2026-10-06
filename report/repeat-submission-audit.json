@@ -1,0 +1,19 @@
+{
+  "evaluation_records_checked": 27,
+  "additional_records": 18,
+  "total_task_attempts": 40,
+  "total_recorded_task_tokens": 1955772,
+  "additional_recorded_tokens": 826907,
+  "independent_metric_recalculation": "OK",
+  "hypotheses_unchanged": true,
+  "official_table_unchanged_and_matches_compare": true,
+  "original_results_unchanged": true,
+  "source_and_skill_git_diff_since_freeze": "empty",
+  "provided_tests": 29,
+  "failures": 0,
+  "secret_scan": "OK",
+  "files_scanned": 140,
+  "personal_overview_tracked": false,
+  "env_tracked": false,
+  "lms_submitted": false
+}

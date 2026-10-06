@@ -104,3 +104,26 @@ docker run --rm --network none --mount "type=bind,source=$labRoot,target=/lab" l
 4. Bảo toàn dev → ghi H1–H3 → 29 tests → quét khóa → hypotheses commit → freeze commit/tag.
 5. Verifier lần đầu báo README CRLF; đồng bộ cấu hình Git rồi OK; baseline eval → subagents eval → skills-auto all.
 6. Bảng/breakdown → báo cáo → test/freeze/hash/secret audit cuối. Bước gửi kho ghi ở READINESS.md; chưa nộp LMS.
+
+## 10. Mở rộng 6e: đo nhiễu eval
+
+Được người dùng yêu cầu sau khi bản bắt buộc đã push main. Giữ nguyên gpt-6-luna, temperature=0, recursion_limit=60, source/prompt/checker và skill/tag freeze. Chạy tuần tự; cần thêm 18 lượt API. Nếu kết quả đã có thì chỉ chạy công cụ phân tích ngoại tuyến, không chạy lại để tránh ghi đè.
+
+```powershell
+# Chỉ dùng các thư mục đích mới, chưa có kết quả.
+foreach ($repeatNumber in @(2, 3)) {
+    foreach ($conditionName in @('baseline', 'subagents', 'skills-auto')) {
+        docker run --rm --env-file .env --mount "type=bind,source=$labRoot,target=/lab" lab-day20:git python -m lab.runner --condition $conditionName --tasks eval --results "results/repeat-$repeatNumber"
+        if ($LASTEXITCODE -ne 0) { throw 'Inspect run records and preserve failures before retry.' }
+    }
+}
+```
+
+Runner có thể trả exit 0 dù record chứa error; đọc đủ 18 record sau chạy, không chỉ dựa vào exit code. Không đưa repeat vào bảng chính thức report/table.md. Công cụ dưới đây kiểm tra mọi error, timestamps/hash, tệp cấm sửa, nguồn chính thức trước đó, rồi sinh bảng/JSON từ ba lượt cho mỗi điều kiện/bài:
+
+```powershell
+docker run --rm --network none --mount "type=bind,source=$labRoot,target=/lab" lab-day20:git python docs/runtime/analyze_repeats.py
+docker run --rm --network none --mount "type=bind,source=$labRoot,target=/lab" lab-day20:git python scripts/verify_freeze.py
+```
+
+Đầu ra: report/repeat-table.md, repeat-metrics.json và repeat-audit.json; repeat-design.json lưu thiết kế và hash nguồn trước khi tổng hợp. Verifier gốc vẫn chỉ kiểm tra 6 lượt chính thức; analyze_repeats.py kiểm tra riêng 6 lượt skills-auto bổ sung trong hai vòng mới. Mỗi tác vụ có ba điểm/token: chính thức, repeat-2, repeat-3. Khoảng min–max chỉ là dao động quan sát, không phải khoảng tin cậy.

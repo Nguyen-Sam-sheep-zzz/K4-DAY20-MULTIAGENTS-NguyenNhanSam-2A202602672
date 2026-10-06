@@ -1,6 +1,6 @@
 # Kế hoạch hoàn thiện Day 20: Self-evolving Agentic
 
-> **Trạng thái thực thi:** Phần bắt buộc đã hoàn thành ngày 06/10/2026; xem `report/PROGRESS.md` và `report/READINESS.md`. Phần mở rộng 6e chưa thực hiện. Nội dung thiết kế/kế hoạch dưới đây giữ bối cảnh trước thí nghiệm.
+> **Trạng thái thực thi:** Phần bắt buộc đã hoàn thành ngày 06/10/2026; xem `report/PROGRESS.md` và `report/READINESS.md`. Phần mở rộng 6e đã hoàn thành theo yêu cầu bổ sung ngày 06/10/2026; xem report/REPEATS_6E.md. Nội dung thiết kế/kế hoạch dưới đây giữ bối cảnh trước thí nghiệm.
 
 > **For agentic workers:** Thực hiện từng nhiệm vụ theo `superpowers:executing-plans`, có checkpoint sau mỗi phần. Các bước dùng checkbox để theo dõi. Đây là kế hoạch được yêu cầu, chưa phải lệnh bắt đầu triển khai hay chạy thí nghiệm.
 
