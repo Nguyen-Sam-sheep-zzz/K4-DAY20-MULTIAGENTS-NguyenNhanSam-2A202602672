@@ -6,10 +6,15 @@ Chạy thật:   python -m lab.runner --condition baseline --tasks learn
 """
 import argparse
 import json
+import tempfile
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
+from langchain_core.callbacks import UsageMetadataCallbackHandler
 from langchain_core.messages import AIMessage, ToolMessage
 
+from .agent import build_agent
 from .grading import grade                                                      # có sẵn
 from .tasks import ROOT, get_task, hash_dir, list_tasks, prepare_sandbox         # có sẵn
 
@@ -65,7 +70,92 @@ def run_task(task_id: str, condition: str, results_dir="results", model=None, re
     Lỗi khi chạy tác tử KHÔNG được làm chương trình dừng: ghi vào `error` và vẫn chấm điểm.
     Sandbox là thư mục tạm NGOÀI kho mã nguồn và phải được xóa sau khi chạy.
     """
-    raise NotImplementedError("TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)")
+    cfg = CONDITIONS[condition]
+    task = get_task(task_id)
+    skills_dir = ROOT / cfg["skills_dir"] if cfg["skills_dir"] else None
+    out = Path(results_dir) / condition / task_id
+    out.mkdir(parents=True, exist_ok=True)
+    record = {
+        "task": task_id,
+        "condition": condition,
+        "role": task.role,
+        "error": None,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
+
+    with tempfile.TemporaryDirectory(prefix="day20-") as tmp:
+        sandbox = Path(tmp)
+        prepare_sandbox(task, sandbox, skills_dir)
+        # Windows checkouts can use CRLF while the supplied Python-test hashes
+        # describe the canonical LF files. Normalise Python copies only, before
+        # the agent runs; keep repository sources, data and skill bytes intact.
+        for source_file in (sandbox / "workspace").rglob("*.py"):
+            content = source_file.read_bytes()
+            if b"\r\n" in content:
+                source_file.write_bytes(content.replace(b"\r\n", b"\n"))
+        before = hash_dir(sandbox / "skills")
+        record["skills_sha256"] = before
+        usage = UsageMetadataCallbackHandler()
+        messages = []
+        started = time.perf_counter()
+        try:
+            agent = build_agent(
+                sandbox,
+                mode=cfg["mode"],
+                use_skills=skills_dir is not None,
+                model=model,
+            )
+            result = agent.invoke(
+                {"messages": [{"role": "user", "content": task.instruction}]},
+                config={"callbacks": [usage], "recursion_limit": recursion_limit},
+            )
+            messages = result["messages"]
+        except Exception as exc:  # noqa: BLE001
+            record["error"] = f"{type(exc).__name__}: {exc}"
+        record["seconds"] = round(time.perf_counter() - started, 1)
+
+        record["tokens"] = {
+            label: sum(item.get(key, 0) for item in usage.usage_metadata.values())
+            for label, key in (
+                ("input", "input_tokens"),
+                ("output", "output_tokens"),
+                ("total", "total_tokens"),
+            )
+        }
+        calls = [
+            call
+            for message in messages
+            if isinstance(message, AIMessage)
+            for call in message.tool_calls
+        ]
+        read_skills = set()
+        for call in calls:
+            if call["name"] == "read_file":
+                file_path = call.get("args", {}).get("file_path", "")
+                if "skills/" in file_path:
+                    name = file_path.split("skills/", 1)[1].split("/", 1)[0]
+                    if name:
+                        read_skills.add(name)
+        record["tool_calls"] = len(calls)
+        record["subagent_calls"] = sum(call["name"] == "task" for call in calls)
+        record["skills_read"] = len(read_skills)
+        record["skills_modified"] = hash_dir(sandbox / "skills") != before
+        record["final_message"] = messages[-1].content if messages else ""
+
+        graded = grade(task, sandbox / "workspace")
+        grading_error = graded.pop("error", None)
+        record.update(graded)
+        if grading_error:
+            record["error"] = (
+                f"{record['error']}; grading: {grading_error}"
+                if record["error"] else f"grading: {grading_error}"
+            )
+        (out / "trace.md").write_text(render_trace(messages), encoding="utf-8")
+        (out / "run.json").write_text(
+            json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+
+    return record
 
 
 def main(argv=None):

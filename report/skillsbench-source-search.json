@@ -1,0 +1,17 @@
+[
+  {
+    "repo": "benchflow-ai/skillsbench",
+    "url": "https://github.com/benchflow-ai/skillsbench",
+    "description": "SkillsBench evaluates how well skills work and how effective agents are at using them."
+  },
+  {
+    "repo": "foryourhealth111-pixel/Vibe-Skills",
+    "url": "https://github.com/foryourhealth111-pixel/Vibe-Skills",
+    "description": "Intelligent Skill routing and workflow orchestration for AI agents — +21.12 pp reward, −29.6% tokens on SkillsBench with DeepSeekV4Flash-VE."
+  },
+  {
+    "repo": "iot-agent/iot-skillsbench",
+    "url": "https://github.com/iot-agent/iot-skillsbench",
+    "description": null
+  }
+]

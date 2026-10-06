@@ -1,0 +1,8 @@
+# Extend the provided lab image: freeze verification requires Git in Linux.
+# Build the original image first: docker build -t lab-day20:local .
+# Then: docker build -f docs/runtime/Dockerfile.git -t lab-day20:git .
+FROM lab-day20:local
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
+ENV PYTHONDONTWRITEBYTECODE=1

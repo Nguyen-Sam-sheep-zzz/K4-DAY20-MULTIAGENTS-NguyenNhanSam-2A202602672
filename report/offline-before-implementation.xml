@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="15" skipped="0" tests="17" time="0.916" timestamp="2026-10-06T04:47:32.415287+00:00" hostname="59c541388772"><testcase classname="tests.test_02_agent" name="test_backend_finds_python_and_hides_secrets" time="0.006"><failure message="NotImplementedError: TODO 2: cài đặt make_backend (xem guides/pseudocode/01_agent.md)">tests/test_02_agent.py:15: in test_backend_finds_python_and_hides_secrets
+    out = make_backend(tmp_path).execute("which python &amp;&amp; env").output
+          ^^^^^^^^^^^^^^^^^^^^^^
+src/lab/agent.py:50: in make_backend
+    raise NotImplementedError("TODO 2: cài đặt make_backend (xem guides/pseudocode/01_agent.md)")
+E   NotImplementedError: TODO 2: cài đặt make_backend (xem guides/pseudocode/01_agent.md)</failure></testcase><testcase classname="tests.test_02_agent" name="test_file_tools_and_shell_share_relative_paths" time="0.003"><failure message="NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)">tests/test_02_agent.py:32: in test_file_tools_and_shell_share_relative_paths
+    out = _run(build_agent(tmp_path, model=model))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/agent.py:67: in build_agent
+    raise NotImplementedError("TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)")
+E   NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)</failure></testcase><testcase classname="tests.test_02_agent" name="test_agent_has_file_shell_and_task_tools" time="0.002"><failure message="NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)">tests/test_02_agent.py:40: in test_agent_has_file_shell_and_task_tools
+    _run(build_agent(tmp_path, mode="single", model=model))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/agent.py:67: in build_agent
+    raise NotImplementedError("TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)")
+E   NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)</failure></testcase><testcase classname="tests.test_02_agent" name="test_agent_uses_the_provided_base_prompt" time="0.002"><failure message="NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)">tests/test_02_agent.py:47: in test_agent_uses_the_provided_base_prompt
+    _run(build_agent(tmp_path, model=model))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/agent.py:67: in build_agent
+    raise NotImplementedError("TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)")
+E   NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)</failure></testcase><testcase classname="tests.test_02_agent" name="test_subagents_have_required_fields" time="0.000" /><testcase classname="tests.test_02_agent" name="test_subagents_mode_adds_subagents_and_delegation_note" time="0.002"><failure message="NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)">tests/test_02_agent.py:61: in test_subagents_mode_adds_subagents_and_delegation_note
+    _run(build_agent(tmp_path, mode="subagents", model=custom))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/agent.py:67: in build_agent
+    raise NotImplementedError("TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)")
+E   NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)</failure></testcase><testcase classname="tests.test_02_agent" name="test_skills_are_loaded_only_when_requested" time="0.003"><failure message="NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)">tests/test_02_agent.py:74: in test_skills_are_loaded_only_when_requested
+    _run(build_agent(tmp_path, use_skills=True, model=with_skills))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/agent.py:67: in build_agent
+    raise NotImplementedError("TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)")
+E   NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)</failure></testcase><testcase classname="tests.test_02_agent" name="test_unknown_mode_is_rejected" time="0.002"><failure message="NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)">tests/test_02_agent.py:84: in test_unknown_mode_is_rejected
+    build_agent(tmp_path, mode="swarm", model=scripted(AIMessage(content="x")))
+src/lab/agent.py:67: in build_agent
+    raise NotImplementedError("TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)")
+E   NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)</failure></testcase><testcase classname="tests.test_02_agent" name="test_subagents_receive_the_path_convention" time="0.002"><failure message="NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)">tests/test_02_agent.py:94: in test_subagents_receive_the_path_convention
+    _run(build_agent(tmp_path, mode="subagents", model=model))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/agent.py:67: in build_agent
+    raise NotImplementedError("TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)")
+E   NotImplementedError: TODO 3: cài đặt build_agent (xem guides/pseudocode/01_agent.md)</failure></testcase><testcase classname="tests.test_03_runner" name="test_three_conditions_defined" time="0.001" /><testcase classname="tests.test_03_runner" name="test_run_task_saves_a_complete_record" time="0.002"><failure message="NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)">tests/test_03_runner.py:22: in test_run_task_saves_a_complete_record
+    rec = run_task("data-learn", "baseline", results_dir=tmp_path, model=scripted(WRITE_PARTIAL, AIMessage(content="done")))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/runner.py:68: in run_task
+    raise NotImplementedError("TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)")
+E   NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)</failure></testcase><testcase classname="tests.test_03_runner" name="test_task_workspace_in_repo_is_never_modified" time="0.002"><failure message="NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)">tests/test_03_runner.py:35: in test_task_workspace_in_repo_is_never_modified
+    run_task("data-learn", "baseline", results_dir=tmp_path, model=scripted(WRITE_PARTIAL, AIMessage(content="done")))
+src/lab/runner.py:68: in run_task
+    raise NotImplementedError("TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)")
+E   NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)</failure></testcase><testcase classname="tests.test_03_runner" name="test_errors_are_recorded_not_raised" time="0.005"><failure message="NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)">tests/test_03_runner.py:43: in test_errors_are_recorded_not_raised
+    rec = run_task("data-learn", "baseline", results_dir=tmp_path, model=Boom(script=[AIMessage(content="x")]))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/runner.py:68: in run_task
+    raise NotImplementedError("TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)")
+E   NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)</failure></testcase><testcase classname="tests.test_03_runner" name="test_modifying_skills_is_flagged" time="0.002"><failure message="NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)">tests/test_03_runner.py:53: in test_modifying_skills_is_flagged
+    rec = run_task("data-learn", "baseline", results_dir=tmp_path, model=scripted(sneaky, AIMessage(content="done")))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/runner.py:68: in run_task
+    raise NotImplementedError("TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)")
+E   NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)</failure></testcase><testcase classname="tests.test_03_runner" name="test_skill_reads_and_subagent_calls_are_counted" time="0.002"><failure message="NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)">tests/test_03_runner.py:65: in test_skill_reads_and_subagent_calls_are_counted
+    rec = run_task("data-learn", "baseline", results_dir=tmp_path,
+src/lab/runner.py:68: in run_task
+    raise NotImplementedError("TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)")
+E   NotImplementedError: TODO 1: cài đặt run_task (xem guides/pseudocode/03_runner.md)</failure></testcase><testcase classname="tests.test_04_curator" name="test_curator_writes_only_valid_skills_and_never_leaks" time="0.131"><failure message="NotImplementedError: TODO: cài đặt curate_skills (xem guides/pseudocode/04_curator.md)">tests/test_04_curator.py:36: in test_curator_writes_only_valid_skills_and_never_leaks
+    paths = curate_skills(results_dir=tmp_path / "results", source_condition="baseline",
+src/lab/curator.py:71: in curate_skills
+    raise NotImplementedError("TODO: cài đặt curate_skills (xem guides/pseudocode/04_curator.md)")
+E   NotImplementedError: TODO: cài đặt curate_skills (xem guides/pseudocode/04_curator.md)</failure></testcase><testcase classname="tests.test_04_curator" name="test_curator_does_nothing_when_nothing_failed" time="0.004"><failure message="NotImplementedError: TODO: cài đặt curate_skills (xem guides/pseudocode/04_curator.md)">tests/test_04_curator.py:49: in test_curator_does_nothing_when_nothing_failed
+    assert curate_skills(results_dir=tmp_path / "results", out_dir=tmp_path / "skills", model=model) == []
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/lab/curator.py:71: in curate_skills
+    raise NotImplementedError("TODO: cài đặt curate_skills (xem guides/pseudocode/04_curator.md)")
+E   NotImplementedError: TODO: cài đặt curate_skills (xem guides/pseudocode/04_curator.md)</failure></testcase></testsuite></testsuites>

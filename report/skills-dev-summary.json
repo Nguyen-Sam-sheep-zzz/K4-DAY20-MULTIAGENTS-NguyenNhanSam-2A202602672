@@ -1,0 +1,51 @@
+{
+  "phase": "pre-freeze dev",
+  "skill_hash": "648e0f3ab02acb02cb940dc4a0d83d07210b0bafb71f7f9a67780867a614fa86",
+  "runs": [
+    {
+      "task": "code-learn",
+      "score": 1.0,
+      "passed": 10,
+      "total": 10,
+      "tokens": {
+        "input": 68887,
+        "output": 1794,
+        "total": 70681
+      },
+      "seconds": 71.8,
+      "skills_read": 1
+    },
+    {
+      "task": "data-learn",
+      "score": 0.75,
+      "passed": 6,
+      "total": 8,
+      "tokens": {
+        "input": 40412,
+        "output": 2578,
+        "total": 42990
+      },
+      "seconds": 50.7,
+      "skills_read": 1
+    },
+    {
+      "task": "logs-learn",
+      "score": 1.0,
+      "passed": 9,
+      "total": 9,
+      "tokens": {
+        "input": 36389,
+        "output": 1564,
+        "total": 37953
+      },
+      "seconds": 50.4,
+      "skills_read": 1
+    }
+  ],
+  "mean_score": 0.9166666666666666,
+  "mean_tokens": 50541.333333333336,
+  "technical_passed": 18,
+  "rules_passed": 7,
+  "manual_skill_edits": false,
+  "reruns": 0
+}

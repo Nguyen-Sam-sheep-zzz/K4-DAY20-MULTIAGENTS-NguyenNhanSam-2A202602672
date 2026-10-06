@@ -1,0 +1,15 @@
+{
+  "model": "gpt-6-luna",
+  "response": "OK",
+  "usage": {
+    "input_tokens": 11,
+    "output_tokens": 5,
+    "total_tokens": 16,
+    "input_token_details": {
+      "cache_read": 0
+    },
+    "output_token_details": {
+      "reasoning": 0
+    }
+  }
+}
