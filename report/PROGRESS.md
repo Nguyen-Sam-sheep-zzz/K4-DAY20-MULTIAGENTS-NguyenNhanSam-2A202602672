@@ -1,43 +1,29 @@
 # Tiến độ Lab 20
 
-Ngày bắt đầu: 06/10/2026. Nhánh: `feature/day20-self-evolving-agents`.
+Ngày thực hiện: 06/10/2026. Nhánh: `feature/day20-self-evolving-agents`.
 
-| Bước | Trạng thái | Bằng chứng / việc còn lại |
+| Bước | Trạng thái | Bằng chứng |
 |---|---|---|
-| 0. Môi trường | Đã xong | Docker Python 3.12.15, Deep Agents 0.7.21, Git 2.47.3; 12/12 test phần có sẵn đạt; tour/phiên bản đã lưu; API gpt-6-luna trả OK. |
-| 1. Subagents và agent | Mã nguồn đã xong | 9/9 test gốc đạt; explorer/reviewer có vai trò rõ ràng; backend không kế thừa biến khóa. |
-| 2. Runner | Đã xong | 6/6 test gốc đạt; baseline data-learn thật đạt 5/8, token và trace hợp lệ. |
-| 3. Tập học | Đang làm | Baseline đủ ba learn: 7/10, 5/8, 6/9; technical 18/18, quy ước 0/9. Đang chạy subagents learn. |
-| 4. Curator | Mã nguồn đã xong; chưa sinh skill thật | 2/2 test gốc đạt. Lọc role=learn, bỏ lượt error, giới hạn/kiểm tra skill trước khi ghi. |
-| 5. Hypotheses và freeze | Chưa bắt đầu | Chỉ thực hiện sau tập học và thử skill. |
-| 6. Đánh giá | Chưa bắt đầu | Chỉ thực hiện sau freeze. |
-| 7. Báo cáo cuối | Chưa bắt đầu | Đã tạo report/REPORT.md từ mẫu, chưa có số liệu thực nghiệm. |
+| 0. Môi trường | Xong | Docker Python 3.12.15, Deep Agents 0.7.21, Git 2.47.3; tour và API smoke gpt-6-luna/temperature=0. |
+| 1. Agent/subagents | Xong | 9/9 test gốc; explorer và reviewer; không kế thừa biến khóa trong shell. |
+| 2. Runner | Xong | 6/6 test gốc; sandbox tạm, đo token/trace/hash, chuẩn hóa bản sao Python sang LF. |
+| 3. Tập học | Xong | Baseline/subagents cùng 7/10, 5/8, 6/9; taxonomy 9 lỗi nhóm E. |
+| 4. Curator và dev | Xong | 2/2 test gốc; 3 skill tự sinh, không sửa tay/không rerun; dev 10/10, 6/8, 9/9, cả ba đọc skill. |
+| 5. Hypotheses/freeze | Xong | hypotheses `4c9cb63`, freeze `fc1f6dd`; Git verifier OK trước eval (0 run vì chưa chạy skills-auto chính thức). |
+| 6. Đánh giá | Xong | 18 run/trace chính thức; verifier kiểm tra 6 skill runs: OK. Eval mean baseline/subagents 0,597306; skills-auto 0,788215. |
+| 7. Báo cáo và kiểm tra | Xong | Báo cáo đủ 10 mục; 29/29 tests cuối; bảng khớp compare; 53 hash tệp bảo toàn, skill và H1–H3 không đổi; quét secret OK. |
 
-## Cấu hình API đã được xử lý
+## Bảo toàn và môi trường
 
-Cổng API từ biến môi trường ban đầu trả HTTP 401 khi đọc danh sách mô hình. Người dùng đã điền `.env` cục bộ; API smoke qua `make_model` thực tế trả OK với `gpt-6-luna` và 16 token. Nhiệt độ 0.0. Không còn cần thao tác của người dùng ở bước này.
+- `.env` người dùng đã điền; API hoạt động. Không có khóa trong tệp dự định commit (đối chiếu literal cục bộ, chỉ báo trạng thái).
+- Toàn bộ 29 test gốc đạt trước freeze: `offline-prefreeze.xml`. Review độc lập bốn module không có finding cần sửa.
+- SHA của tests/tasks/scripts/module provided và tài liệu đề không đổi. Thay đổi source chỉ ở TODO/import; constants, helper, chữ ký/docstring và CLI giữ nguyên.
+- Lượt code-learn đầu 6/10 có false failure `tests_not_modified` do CRLF Windows, giữ tại `results/archive/baseline-pre-lf/code-learn`. Reproducer no-op chứng minh; runner chuẩn hóa bản sao Python trước agent; code-learn hợp lệ chạy lại, data/log giữ nguyên.
+- Docker Git ban đầu báo README trong skills khác tag chỉ do CRLF; cấu hình repo `core.autocrlf=true` đồng bộ Windows/Linux làm verifier OK. Không sửa byte của skill hoặc di chuyển tag.
+- Hash skill đo trên Linux: `648e0f3ab02acb02cb940dc4a0d83d07210b0bafb71f7f9a67780867a614fa86`.
+- Raw trace có whitespace từ output công cụ; giữ nguyên bằng chứng. Kiểm tra whitespace của mã nguồn, skill và tài liệu riêng.
+- Commit/tag đã tạo đúng quy trình; trạng thái gửi kho ở READINESS.md, chưa nộp LMS.
 
-Trong lúc chờ, tiếp tục hoàn thiện mã nguồn và test ngoại tuyến. Không gọi bài đánh giá, tạo skill giả hoặc ghi số liệu thí nghiệm thay cho dữ liệu thật.
+## Bàn giao
 
-Git bỏ qua `.env` đúng yêu cầu. Không đưa giá trị khóa vào báo cáo hoặc chat. Các tác vụ học đang được chạy tuần tự.
-
-## Kiểm tra mã nguồn
-
-- Toàn bộ test gốc: **29 passed**, không có failure/error; bằng chứng JUnit ở `report/offline-all.xml`.
-- Các test trước cài đặt agent/runner/curator còn lỗi đúng tại NotImplementedError; lưu ở `report/offline-before-implementation.xml`. `get_subagents` đã có kiểm tra hợp đồng đỏ/xanh trước đó, rồi được kiểm tra tích hợp bằng test gốc.
-- So sánh AST với HEAD: constants, hàm có sẵn, chữ ký và docstring giữ nguyên; thay đổi mã chỉ nằm trong phần TODO/import cho phép.
-- Đối chiếu SHA-256: tệp đề, tests/tasks/scripts và module có sẵn không đổi.
-- Review độc lập theo `superpowers:requesting-code-review`: không phát hiện lỗi cần sửa trong bốn module; sẵn sàng chạy tập học sau khi API smoke đạt. Chưa xác nhận khả năng gọi tool và token metadata của nhà cung cấp thật.
-- Test dùng mô hình giả và thư mục tạm; `results/` chính thức vẫn chưa có dữ liệu. Chưa tạo tag freeze, commit hoặc push.
-
-## Bổ sung tương thích Windows
-
-Đã chứng minh `tests_not_modified` của lượt code-learn đầu trượt do CRLF, không phải tác tử sửa test. Runner chuẩn hóa bản sao Python sang LF trước khi tác tử chạy; không sửa nguồn/dữ liệu/skill. Reproducer no-op chuyển từ trượt sang đạt; toàn bộ 29 test vẫn đạt sau sửa. Review độc lập không phát hiện vấn đề vật chất với thay đổi này.
-
-Lượt cũ được giữ ở `results/archive/baseline-pre-lf/code-learn`; chỉ bài code được chạy lại, vì data/logs không có `.py` trong workspace. Không dùng lỗi CRLF làm dữ liệu lỗi tác tử. Thêm một lượt vào ngân sách thực dùng.
-
-## Phạm vi bảo toàn
-
-Đã lưu SHA-256 của tệp đề và các tệp cấm sửa vào `source-document-hashes.txt` và `protected-file-hashes.txt`. Danh sách hash chỉ dùng đối chiếu nội dung, không chứa dữ liệu hoặc đáp án của tác vụ.
-
-Thêm `.dockerignore` để lần build sau không gửi `.env`, Git và kết quả vào build context. Không sửa Dockerfile hoặc pyproject.toml.
+Phần bắt buộc hoàn thành cục bộ. Tổng 22 lượt tác vụ, 1.128.865 token đo; curator một lần chưa ghi token. Không thực hiện mở rộng tùy chọn 6e. Đối chiếu chi tiết rubric ở `READINESS.md`; kết quả phân tích ở `REPORT.md`, hướng dẫn tái lập ở `RUN_COMMANDS.md`. Bản nộp được chuẩn bị trên main, chưa nộp LMS. Không cần người dùng thao tác thêm để kiểm tra bài đã lưu; muốn chạy mới cần Docker và .env, muốn giao bài cần push cả nhánh và tag freeze rồi nộp liên kết.

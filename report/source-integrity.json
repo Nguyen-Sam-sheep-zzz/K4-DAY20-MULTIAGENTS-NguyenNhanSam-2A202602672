@@ -1,0 +1,9 @@
+{
+  "reference": "d982034811dae6e0e42d0698131a9f33972a0bed",
+  "checks": {
+    "src/lab/agent.py": "Only designated implementation bodies/imports differ; other AST, signatures/docstrings unchanged.",
+    "src/lab/subagents.py": "Only designated implementation bodies/imports differ; other AST, signatures/docstrings unchanged.",
+    "src/lab/runner.py": "Only designated implementation bodies/imports differ; other AST, signatures/docstrings unchanged.",
+    "src/lab/curator.py": "Only designated implementation bodies/imports differ; other AST, signatures/docstrings unchanged."
+  }
+}

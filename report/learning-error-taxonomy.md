@@ -1,6 +1,6 @@
-# Phan loai loi baseline tren tap hoc
+# Phân loại lỗi baseline trên tập học
 
-| Tac vu | Check that bai | Nhom | Bang chung detail |
+| Tác vụ | Check thất bại | Nhóm | Bằng chứng detail |
 |---|---|---|---|
 | code-learn | `rule_type_hints` | E | RULE: every public function (name not starting with '_') in the package has type annotations on all parameters and on the return value. |
 | code-learn | `rule_regression_tests` | E | RULE: add tests/test_regressions.py with one test function per bug you fixed (at least 3); the file must pass. |
@@ -12,6 +12,6 @@
 | logs-learn | `rule_sorted_errors` | E | RULE: `errors` is sorted by service, then by timestamp_utc, ascending. |
 | logs-learn | `rule_schema_header` | E | RULE: the top-level object has "schema_version": 2 and "generated_by": "log-triage". |
 
-Nguon: results/baseline/<task>/run.json, truong checks. Sau khi sua CRLF trong ban sao Python, 18/18 check ky thuat dat va 0/9 check quy uoc dat. Loi tap trung nhom E. Day la bang chung phu dinh trong pham vi bo check doi voi A-D, khong phai chung minh moi quy trinh cua tac tu deu toi uu.
+Nguồn: `results/baseline/<task>/run.json`, trường `checks`. Sau khi sửa CRLF trong bản sao Python, 18/18 check kỹ thuật đạt và 0/9 check quy ước đạt. Lỗi tập trung nhóm E: thiếu quy ước tổ chức trong đặc tả visible; thêm đọc kỹ hay đồng đội không tự tạo được tri thức chưa có. Đây là bằng chứng phủ định trong phạm vi bộ check đối với A–D (đọc đặc tả, tìm caller, sửa lỗi, xử lý kỹ thuật), không chứng minh toàn bộ quy trình tác tử đều tối ưu; không có bằng chứng check thất bại thuộc F/G trong ba lượt hợp lệ.
 
-Luot code-learn truoc sua CRLF luu o results/archive/baseline-pre-lf/code-learn. Loi tests_not_modified cua luot nay do checksum CRLF/LF, da tai hien bang tac tu khong sua tep; khong dua vao taxonomy loi tac tu.
+Lượt code-learn trước sửa CRLF lưu tại `results/archive/baseline-pre-lf/code-learn`. Lỗi `tests_not_modified` của lượt này do checksum CRLF/LF, đã tái hiện bằng tác tử không sửa tệp; không đưa vào taxonomy lỗi tác tử.

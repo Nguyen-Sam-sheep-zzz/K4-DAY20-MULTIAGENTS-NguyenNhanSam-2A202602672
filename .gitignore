@@ -6,3 +6,6 @@ __pycache__/
 *.egg-info/
 # Tài liệu và mã dành cho giảng viên (đáp án, bản cài đặt tham chiếu, bộ sinh dữ liệu). Chỉ giữ cục bộ.
 instructor/
+
+# Personal explanation kept locally; excluded from submission.
+/report/TONG_QUAN.md

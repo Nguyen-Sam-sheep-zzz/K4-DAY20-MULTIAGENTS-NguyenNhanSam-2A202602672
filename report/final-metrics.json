@@ -1,0 +1,194 @@
+{
+  "stats": {
+    "baseline": {
+      "learn": {
+        "runs": 3,
+        "mean_score": 0.6638888888888889,
+        "mean_tokens": 32714.333333333332,
+        "mean_seconds": 47.43333333333334,
+        "total_tokens": 98143,
+        "total_seconds": 142.3,
+        "subagent_calls": 0,
+        "read_a_skill": 0,
+        "technical": [
+          18,
+          18
+        ],
+        "rules": [
+          0,
+          9
+        ],
+        "score_per_million_tokens": 20.293517282604636
+      },
+      "eval": {
+        "runs": 3,
+        "mean_score": 0.5973063973063973,
+        "mean_tokens": 34025.333333333336,
+        "mean_seconds": 44.53333333333333,
+        "total_tokens": 102076,
+        "total_seconds": 133.6,
+        "subagent_calls": 0,
+        "read_a_skill": 0,
+        "technical": [
+          18,
+          18
+        ],
+        "rules": [
+          0,
+          12
+        ],
+        "score_per_million_tokens": 17.554755201214704
+      },
+      "all": {
+        "runs": 6,
+        "mean_score": 0.6305976430976431,
+        "mean_tokens": 33369.833333333336,
+        "mean_seconds": 45.983333333333334,
+        "total_tokens": 200219,
+        "total_seconds": 275.9,
+        "subagent_calls": 0,
+        "read_a_skill": 0,
+        "technical": [
+          36,
+          36
+        ],
+        "rules": [
+          0,
+          21
+        ],
+        "score_per_million_tokens": 18.89723681861291
+      }
+    },
+    "subagents": {
+      "learn": {
+        "runs": 3,
+        "mean_score": 0.6638888888888889,
+        "mean_tokens": 69739,
+        "mean_seconds": 109.23333333333333,
+        "total_tokens": 209217,
+        "total_seconds": 327.70000000000005,
+        "subagent_calls": 5,
+        "read_a_skill": 0,
+        "technical": [
+          18,
+          18
+        ],
+        "rules": [
+          0,
+          9
+        ],
+        "score_per_million_tokens": 9.519621573135387
+      },
+      "eval": {
+        "runs": 3,
+        "mean_score": 0.5973063973063973,
+        "mean_tokens": 64605.666666666664,
+        "mean_seconds": 86.46666666666667,
+        "total_tokens": 193817,
+        "total_seconds": 259.4,
+        "subagent_calls": 4,
+        "read_a_skill": 0,
+        "technical": [
+          18,
+          18
+        ],
+        "rules": [
+          0,
+          12
+        ],
+        "score_per_million_tokens": 9.245418058886434
+      },
+      "all": {
+        "runs": 6,
+        "mean_score": 0.6305976430976431,
+        "mean_tokens": 67172.33333333333,
+        "mean_seconds": 97.85000000000001,
+        "total_tokens": 403034,
+        "total_seconds": 587.1,
+        "subagent_calls": 9,
+        "read_a_skill": 0,
+        "technical": [
+          36,
+          36
+        ],
+        "rules": [
+          0,
+          21
+        ],
+        "score_per_million_tokens": 9.38775849825538
+      }
+    },
+    "skills-auto": {
+      "learn": {
+        "runs": 3,
+        "mean_score": 0.9583333333333334,
+        "mean_tokens": 66376.66666666667,
+        "mean_seconds": 65.26666666666667,
+        "total_tokens": 199130,
+        "total_seconds": 195.8,
+        "subagent_calls": 0,
+        "read_a_skill": 3,
+        "technical": [
+          18,
+          18
+        ],
+        "rules": [
+          8,
+          9
+        ],
+        "score_per_million_tokens": 14.437804449354692
+      },
+      "eval": {
+        "runs": 3,
+        "mean_score": 0.7882154882154883,
+        "mean_tokens": 43363.333333333336,
+        "mean_seconds": 43.46666666666667,
+        "total_tokens": 130090,
+        "total_seconds": 130.4,
+        "subagent_calls": 0,
+        "read_a_skill": 3,
+        "technical": [
+          18,
+          18
+        ],
+        "rules": [
+          6,
+          12
+        ],
+        "score_per_million_tokens": 18.177004109819855
+      },
+      "all": {
+        "runs": 6,
+        "mean_score": 0.8732744107744108,
+        "mean_tokens": 54870,
+        "mean_seconds": 54.36666666666667,
+        "total_tokens": 329220,
+        "total_seconds": 326.2,
+        "subagent_calls": 0,
+        "read_a_skill": 6,
+        "technical": [
+          36,
+          36
+        ],
+        "rules": [
+          14,
+          21
+        ],
+        "score_per_million_tokens": 15.915334623189553
+      }
+    }
+  },
+  "budget": {
+    "task_attempts": 22,
+    "official_attempts": 18,
+    "dev_attempts": 3,
+    "archived_crlf_attempts": 1,
+    "recorded_task_tokens": 1128865,
+    "official_tokens": 932473,
+    "dev_tokens": 151624,
+    "api_smoke_tokens": 16,
+    "curator_calls": 1,
+    "curator_tokens": "not captured by provided CLI",
+    "optional_repeats": 0
+  }
+}

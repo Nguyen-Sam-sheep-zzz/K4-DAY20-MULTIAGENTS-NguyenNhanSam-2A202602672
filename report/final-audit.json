@@ -1,0 +1,21 @@
+{
+  "tests": 29,
+  "failures_and_errors": 0,
+  "official_records": 18,
+  "official_traces": 18,
+  "dev_records": 3,
+  "all_task_attempts": 22,
+  "protected_file_checks": 53,
+  "protected_files_unchanged": true,
+  "original_skill_file_hashes_unchanged": true,
+  "hypotheses_unchanged_from_preregistered_commit": true,
+  "freeze_commit_unchanged": true,
+  "official_skill_run_hashes_and_timestamps_match": true,
+  "table_matches_provided_compare": true,
+  "secret_literal_scan": "OK",
+  "files_scanned": 98,
+  "env_tracked": false,
+  "pushed": false,
+  "submitted": false,
+  "phase": "Pre-publication experiment audit; remote delivery checked separately."
+}

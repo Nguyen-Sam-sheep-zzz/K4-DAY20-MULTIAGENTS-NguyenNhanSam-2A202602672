@@ -1,0 +1,15 @@
+{
+  "hypotheses_commit": "4c9cb639906b0303c4fab523a9fdc4b5ee4d5d2d",
+  "freeze_commit": "fc1f6dd0ea21b585654ce281d334ee1c2cc03f86",
+  "freeze_commit_time": "2026-10-06T12:19:58+07:00",
+  "skill_hash_linux": "648e0f3ab02acb02cb940dc4a0d83d07210b0bafb71f7f9a67780867a614fa86",
+  "skill_file_hashes": {
+    "skills/auto/normalized-tabular-output/SKILL.md": "33883ab0688a963233078cced84146236a2c2ead2a116c7abe3eca35b1e83842",
+    "skills/auto/structured-log-triage/SKILL.md": "cdb03a8208e3bd8b4c89a120dde0f09450b485e50094609c3484a960b9a5ae5c",
+    "skills/auto/typed-regression-maintenance/SKILL.md": "1a9c14b16579f8b5b249e50d2c95dff57f63af4b0e5bf65a7c775b80eac67a6c"
+  },
+  "initial_verifier_issue": "Git Linux interpreted CRLF in the pre-existing skills/auto/README.md as a diff; no generated skill changed.",
+  "resolution": "git config --local core.autocrlf true; verifier checked 0 official skill runs: OK, before official skills-auto execution.",
+  "tag_moved": false,
+  "skill_bytes_edited": false
+}
