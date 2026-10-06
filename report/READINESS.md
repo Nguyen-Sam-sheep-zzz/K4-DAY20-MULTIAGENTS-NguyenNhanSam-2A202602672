@@ -55,3 +55,5 @@ Phần bắt buộc đã có trên **GitHub main cùng tag freeze**, đủ để
 | Mã/tái lập (+1) | docs/runtime/analyze_repeats.py stdlib; 27 records audit và 6 skill runs thêm; 29/29 tests. |
 
 Đã có đủ bằng chứng cho năm tiêu chí thưởng; điểm thực tế do giảng viên quyết định và tổng điểm không vượt 100.
+
+Phần 6e đã đẩy lên main và đối chiếu remote đủ 18 cặp bổ sung; công cụ thống kê tái lập trên clone Linux LF sạch thành công. Provenance giao phần mở rộng ở repeat-publication.json.

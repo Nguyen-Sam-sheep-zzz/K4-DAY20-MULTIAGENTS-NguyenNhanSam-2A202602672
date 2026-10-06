@@ -1,0 +1,12 @@
+{
+  "verified_at": "2026-10-06T16:56:19.483173+07:00",
+  "branch": "main",
+  "verified_experiment_commit": "d38f53c32609e5ab06a23aa7684599e3ac49e2e0",
+  "freeze_commit": "fc1f6dd0ea21b585654ce281d334ee1c2cc03f86",
+  "additional_run_trace_pairs_on_remote": 18,
+  "evaluation_records_in_analysis": 27,
+  "all_task_attempts": 40,
+  "personal_overview_in_main_tree_or_history": false,
+  "clean_linux_clone_analysis": "OK",
+  "lms_submitted": false
+}

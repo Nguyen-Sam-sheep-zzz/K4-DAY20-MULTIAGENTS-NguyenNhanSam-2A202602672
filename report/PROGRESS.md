@@ -29,4 +29,4 @@ Ngày thực hiện: 06/10/2026. Nhánh: `feature/day20-self-evolving-agents`.
 
 Phần bắt buộc hoàn thành cục bộ. Tổng 40 lượt tác vụ, 1.955.772 token đo; curator một lần chưa ghi token. Đã hoàn tất 6e thêm 18 lượt và 826.907 token theo yêu cầu bổ sung; mean eval ba vòng baseline/subagents 0,597306, skills-auto 0,812907. Đối chiếu chi tiết rubric ở `READINESS.md`; kết quả phân tích ở `REPORT.md`, hướng dẫn tái lập ở `RUN_COMMANDS.md`. Bản nộp đã đẩy lên GitHub main kèm tag freeze và đối chiếu remote, chưa nộp LMS. Không cần người dùng thao tác thêm để kiểm tra bài đã lưu; muốn chạy mới cần Docker và .env, để nộp bài, dùng liên kết kho main trên GitHub.
 
-Phần 6e được chuẩn bị bổ sung lên main, giữ nguyên tag freeze và tệp tổng quan cá nhân không được push.
+Phần 6e đã đẩy lên GitHub main và đối chiếu đủ 18 run/trace bổ sung. Clone Linux LF sạch tái lập thống kê thành công; giữ nguyên tag freeze và tệp tổng quan cá nhân không được push. Xem repeat-publication.json.
